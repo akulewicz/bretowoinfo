@@ -5,4 +5,6 @@ __pycache__
 *.pot
 *.pyc
 media/
+images/
 **/.DS_Store
+

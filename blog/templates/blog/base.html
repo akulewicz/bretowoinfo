@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bretowo.info</title>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="top-navigation">
+            <ul class="top-navigation__list">
+                <li class="top-navigation__item">Strona główna</li>
+                <li class="top-navigation__item">O Brętowie</li>
+                <li class="top-navigation__item">Kontakt</li>
+            </ul>
+        </nav>
+        <div class="site-header__cover">
+            <h1 class="site-header__title container">Bretowo.info</h1>
+        </div>
+    </header>
+    <main class="main container">
+    
+        {% block content%}{% endblock %}
+            
+       
+    </main>
+
+
+   
+</body>
+</html>

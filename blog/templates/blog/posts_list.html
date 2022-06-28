@@ -1,0 +1,69 @@
+{% extends 'blog/base.html' %}
+
+{% block content%}
+<section class="news">
+    <div class="block-title">
+        <h2 class="block-title__heading">Najważniejsze</h2>
+    </div>
+    
+    <div class="posts">
+
+        {% for post in posts %}
+            <article class="post">
+ 
+                <img class="post__photo" src="{{ post.image.url }}" alt="">
+                <span><a class="post__category" href="">Test</a></span>
+                <h3 class="post__title"><a class="post__link" href="">{{ post.title }}</a></h3>
+                <p class="post__excerpt">{{ post.content }}</p>
+            </article>
+        {% endfor %}
+     
+    </div>
+   
+</section>
+<section class="latest">  
+    <div class="latest__box">
+        <div class="block-title">
+            <h2 class="block-title__heading">Aktualności</h2>
+        </div>
+        
+            <article class="post post--direction-row">
+                <img class="post__photo post__photo--small" src="https://www.gcs.gda.pl/wp-content/uploads/2022/06/IMG-2040.jpg" alt="">
+                <div class="post__description">
+                    <span class="post__category">Wydarzenia</span>
+                <h3 class="post__title">Totuopinty wspomogą osoby z dysfunkcją wzroku</h3>
+                <p class="post__excerpt">More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous…</p>
+                </div>
+                
+            </article>
+            <article class="post post--direction-row">
+                <img class="post__photo post__photo--small" src="https://cheerup.theme-sphere.com/magazine/wp-content/uploads/sites/7/2016/05/photo-1470985166016-a7d53763cee7-768x512.jpg" alt="">
+                <div class="post__description">
+                    <span class="post__category">Travel</span>
+                <h3 class="post__title">Amazing Things You May Have Missed Growing up</h3>
+                <p class="post__excerpt">More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous…</p>
+                </div>
+                
+            </article>
+            <article class="post post--direction-row">
+                <img class="post__photo post__photo--small" src="https://cheerup.theme-sphere.com/magazine/wp-content/uploads/sites/7/2016/05/photo-1470985166016-a7d53763cee7-768x512.jpg" alt="">
+                <div class="post__description">
+                    <span class="post__category">Travel</span>
+                <h3 class="post__title">Amazing Things You May Have Missed Growing up</h3>
+                <p class="post__excerpt">More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous…</p>
+                </div>
+            </article>
+    </div>
+    <aside>
+        <img src="static/images/bo.png" alt="">   
+<!-- Airly Widget Begin -->
+<script src="https://airly.org/map/airly.js" type="text/javascript"></script>
+<iframe id="airly_1844082224" src="https://airly.org/map/widget.html#w=280&h=380&m=false&i=true&d=false&ah=true&aw=true&l=pl&it=AIRLY_CAQI&us=metric&ut=celsius&lat=54.37586&lng=18.561977&id=86756" style="width:100%; height:auto;border:none;"></iframe>
+<!-- Airly Widget End -->
+ 
+</aside>
+   
+   
+</section>
+
+{% endblock %}
