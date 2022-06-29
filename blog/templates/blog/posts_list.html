@@ -1,23 +1,20 @@
 {% extends 'blog/base.html' %}
 
-{% block content%}
+{% block content %}
 <section class="news">
     <div class="block-title">
         <h2 class="block-title__heading">Najważniejsze</h2>
     </div>
     
     <div class="posts">
-
-        {% for post in posts %}
+        {% for post in posts|slice:':6' %}
             <article class="post">
- 
                 <img class="post__photo" src="{{ post.image.url }}" alt="">
-                <span><a class="post__category" href="">Test</a></span>
+                <span><a class="post__category" href="">{{ post.category }}</a></span>
                 <h3 class="post__title"><a class="post__link" href="">{{ post.title }}</a></h3>
-                <p class="post__excerpt">{{ post.content }}</p>
+                <p class="post__excerpt">{{ post.content|truncatewords:40 }}</p>
             </article>
         {% endfor %}
-     
     </div>
    
 </section>
