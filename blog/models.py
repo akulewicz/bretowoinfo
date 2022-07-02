@@ -19,7 +19,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(default=timezone.now)
     is_fetaured = models.BooleanField(default=False)
-    category = models.ForeignKey(Category, default=1, on_delete=models.SET_DEFAULT)
+    category = models.ForeignKey(Category, default=1, on_delete=models.SET_DEFAULT, related_name="posts")
     
 
     def __str__(self):

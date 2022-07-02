@@ -3,16 +3,20 @@
 {% block content %}
 <section class="news">
     <div class="block-title">
-        <h2 class="block-title__heading">Najważniejsze</h2>
+        <h2 class="block-title__heading">Aktualności</h2>
     </div>
     
+
+
     <div class="posts">
-        {% for post in posts|slice:':6' %}
+        {% for post in posts|slice:'0:5' %}
             <article class="post">
                 <img class="post__photo" src="{{ post.image.url }}" alt="">
-                <span><a class="post__category" href="">{{ post.category }}</a></span>
-                <h3 class="post__title"><a class="post__link" href="">{{ post.title }}</a></h3>
-                <p class="post__excerpt">{{ post.content|truncatewords:40 }}</p>
+                <div class="post__description">
+                    <span><a class="post__category" href="">{{ post.category }}</a></span>
+                    <h3 class="post__title"><a class="post__link" href="">{{ post.title }}</a></h3>
+                    <p class="post__excerpt">{{ post.content|truncatewords:40 }}</p>
+                </div>
             </article>
         {% endfor %}
     </div>
@@ -21,35 +25,20 @@
 <section class="latest">  
     <div class="latest__box">
         <div class="block-title">
-            <h2 class="block-title__heading">Aktualności</h2>
+            <h2 class="block-title__heading">Z miasta</h2>
         </div>
         
+        {% for post in city_category.posts.all %}
             <article class="post post--direction-row">
-                <img class="post__photo post__photo--small" src="https://www.gcs.gda.pl/wp-content/uploads/2022/06/IMG-2040.jpg" alt="">
+                <img class="post__photo post__photo--small" src="{{ post.image.url }}" alt="">
                 <div class="post__description">
-                    <span class="post__category">Wydarzenia</span>
-                <h3 class="post__title">Totuopinty wspomogą osoby z dysfunkcją wzroku</h3>
-                <p class="post__excerpt">More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous…</p>
-                </div>
-                
-            </article>
-            <article class="post post--direction-row">
-                <img class="post__photo post__photo--small" src="https://cheerup.theme-sphere.com/magazine/wp-content/uploads/sites/7/2016/05/photo-1470985166016-a7d53763cee7-768x512.jpg" alt="">
-                <div class="post__description">
-                    <span class="post__category">Travel</span>
-                <h3 class="post__title">Amazing Things You May Have Missed Growing up</h3>
-                <p class="post__excerpt">More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous…</p>
-                </div>
-                
-            </article>
-            <article class="post post--direction-row">
-                <img class="post__photo post__photo--small" src="https://cheerup.theme-sphere.com/magazine/wp-content/uploads/sites/7/2016/05/photo-1470985166016-a7d53763cee7-768x512.jpg" alt="">
-                <div class="post__description">
-                    <span class="post__category">Travel</span>
-                <h3 class="post__title">Amazing Things You May Have Missed Growing up</h3>
-                <p class="post__excerpt">More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous…</p>
+                    <span class="post__category">{{ post.category }}</span>
+                <h3 class="post__title">{{ post.title }}</h3>
+                <p class="post__excerpt">{{ post.content|truncatewords:40 }}</p>
                 </div>
             </article>
+        {% endfor %}
+           
     </div>
     <aside>
         <img src="static/images/bo.png" alt="">   

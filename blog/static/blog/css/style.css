@@ -125,9 +125,24 @@ html {
     margin-bottom: 15px;
   }
 
+  .post:first-child {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    position: relative;
+  }
+
   .post__photo--small {
     max-width: 300px;
     margin-right: 40px;
+  }
+
+  .post:first-child .post__description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.707);
+    width: 100%;
+    padding: 15px;
   }
 
   .post__category {
