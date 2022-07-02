@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import SlugField
 from django.utils import timezone
 
 # Create your models here.
@@ -14,6 +15,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(blank=False, max_length=255)
+    slug = models.SlugField()
     content = models.TextField(blank=False)
     image = models.ImageField(upload_to='posts/images/%Y/%m/%d', blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
