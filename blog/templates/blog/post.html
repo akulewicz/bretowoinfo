@@ -19,7 +19,9 @@
 </article>
 
 <aside class="sidebar">
-    <h2>Najowsze posty</h2>
+    <div class="block-title">
+        <h2 class="block-title__heading">Najnowsze</h2>
+    </div>
     {% for post in posts %}
         <div class="post-sidebar">
             <img class="post-sidebar__photo" src="{{ post.image.url }}" alt="">
