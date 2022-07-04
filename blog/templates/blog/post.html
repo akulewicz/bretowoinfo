@@ -2,14 +2,33 @@
 
 {% block content %}
 
-<article class="post">
-    <img class="post__photo" src="{{ post.image.url }}" alt="">
-    <div class="post__description">
-        <span><a class="post__category" href="">{{ post.category }}</a></span>
-        <h3 class="post__title"><a class="post__link" href="">{{ post.title }}</a></h3>
-        <p class="post__excerpt">{{ post.content }}</p>
-    </div>
+<div class="content-with-sidebar">
+
+<article class="post-single">
+
+        
+        <h3 class="post-single__title">{{ post.title }}</h3>
+        <div class="post-single__info">
+            <span><a class="post-single__category" href="">{{ post.category }}</a></span>
+            <span class="post-single__date">{{ post.published_date }}</span>
+        </div>
+        
+        <img class="post__photo" src="{{ post.image.url }}" alt="">
+        <p class="post__content">{{ post.content }}</p>
+
 </article>
+
+<aside class="sidebar">
+    <h2>Najowsze posty</h2>
+    {% for post in posts %}
+        <div class="post-sidebar">
+            <img class="post-sidebar__photo" src="{{ post.image.url }}" alt="">
+            <h3><a class="post__link" href="{% url 'post_details' slug=post.slug %}">{{ post.title }}</a></h3>
+        </div>
+    {% endfor %}
+</aside>
+
+</div>
 
 
 {% endblock %}

@@ -5,7 +5,7 @@ from .models import Post, Category
 # Create your views here.
 
 def posts_list(request):
-    posts = Post.objects.all().order_by('published_date')
+    posts = Post.objects.all().order_by('-published_date')
     city_category = Category.objects.get(name='Z miasta')
     context = {
         'posts': posts,
@@ -13,3 +13,12 @@ def posts_list(request):
     }
 
     return render(request, 'blog/posts_list.html', context )
+
+def post_details(request, slug):
+    post = Post.objects.get(slug=slug)
+    posts = Post.objects.all().order_by('-published_date')[:5]
+    context = {
+        'posts': posts,
+        'post': post
+    }
+    return render(request, 'blog/post.html', context)

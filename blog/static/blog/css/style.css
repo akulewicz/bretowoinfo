@@ -25,6 +25,10 @@ html {
     font-family: 'Lato', sans-serif;
   }
 
+  h1, h2, h3, h4, h5 {
+    color: #000;
+  }
+
   .container {
     max-width: 1170px;
     margin: 0 auto;
@@ -125,7 +129,7 @@ html {
     margin-bottom: 15px;
   }
 
-  .post:first-child {
+  .post--home:first-child {
     grid-column-start: 1;
     grid-column-end: 3;
     position: relative;
@@ -136,7 +140,7 @@ html {
     margin-right: 40px;
   }
 
-  .post:first-child .post__description {
+  .post:first-child .post__description--first {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -146,6 +150,7 @@ html {
   }
 
   .post__category {
+    display: inline-block;
     color: white;
     font-size: 12px;
     letter-spacing: 0.5px;
@@ -156,6 +161,7 @@ html {
     transition: background-color .2s linear;
   }
 
+
   .post__category:hover {
     background-color: #000;
   }
@@ -164,6 +170,8 @@ html {
     display: flex;
     margin-bottom: 30px;
   }
+
+  
 
   /* .post__description {
     display: flex;
@@ -174,6 +182,43 @@ html {
     font-size: 20px;
     line-height: 1.3;
   }
+
+  .post-single__title {
+    font-size: 20px;
+    line-height: 1.3;
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .post-single__info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .post-single__category {
+    display: inline-block;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 2px 5px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #ec0e0e;
+    transition: background-color .2s linear;
+  }
+
+  .post-single__category:hover {
+    background-color: #000;
+  }
+
+  .post-single__date {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
 
   .post__link {
     text-decoration: none;
@@ -187,6 +232,11 @@ html {
 
   .post__excerpt {
     line-height: 1.5;
+  }
+
+  .post__content {
+    line-height: 1.7;
+    font-size: 18px;
   }
 
   .latest {
@@ -209,4 +259,20 @@ html {
     max-width: 100%;
   }
 
+  .content-with-sidebar {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 60px;
+  }
+
+  .post-sidebar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .post-sidebar__photo {
+    width: 150px;
+    margin-right: 20px;
+  }
   

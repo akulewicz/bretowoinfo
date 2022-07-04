@@ -6,15 +6,13 @@
         <h2 class="block-title__heading">Aktualności</h2>
     </div>
     
-
-
     <div class="posts">
         {% for post in posts|slice:'0:5' %}
-            <article class="post">
+            <article class="post post--home">
                 <img class="post__photo" src="{{ post.image.url }}" alt="">
-                <div class="post__description">
+                <div class="post__description post__description--first">
                     <span><a class="post__category" href="">{{ post.category }}</a></span>
-                    <h3 class="post__title"><a class="post__link" href="">{{ post.title }}</a></h3>
+                    <h3 class="post__title"><a class="post__link" href="{% url 'post_details' slug=post.slug %}">{{ post.title }}</a></h3>
                     <p class="post__excerpt">{{ post.content|truncatewords:40 }}</p>
                 </div>
             </article>
