@@ -9,7 +9,7 @@
         
         <h3 class="post-single__title">{{ post.title }}</h3>
         <div class="post-single__info">
-            <span><a class="post-single__category" href="">{{ post.category }}</a></span>
+            <span><a class="post-single__category" href="{% url 'category' post.category %}">{{ post.category }}</a></span>
             <span class="post-single__date">{{ post.published_date }}</span>
         </div>
         
