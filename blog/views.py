@@ -10,7 +10,7 @@ def main(request):
         'posts': posts,
         'city_category': city_category
     }
-    return render(request, 'blog/main.html', context )
+    return render(request, 'blog/main.html', context)
 
 
 def post_details(request, slug):
@@ -30,5 +30,8 @@ def categories(request, category_name):
         'category_name': category_name,
         'category_posts': category_posts
     }
-
     return render(request, 'blog/categories.html', context)
+
+def all_posts(request):
+    posts = Post.objects.all().order_by('-published_date')
+    return render(request, 'blog/all_posts.html', {'posts': posts})

@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<section class="news">
+    <div class="block-title">
+        <h2 class="block-title__heading">Aktualności</h2>
+    </div>
+    
+    <div class="posts">
+        {% for post in posts %}
+            <article class="post">
+                <img class="post__photo" src="{{ post.image.url }}" alt="">
+                <div class="post__description">
+                    <div class="post-single__info">
+                        <span><a class="post-single__category" href="{% url 'category' post.category %}">{{ post.category }}</a></span>
+                        <span class="post-single__date">{{ post.published_date }}</span>
+                    </div>
+                    <h3 class="post__title"><a class="post__link" href="{% url 'post_details' slug=post.slug %}">{{ post.title }}</a></h3>
+                    <p class="post__excerpt">{{ post.content|truncatewords:40 }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+   
+</section>
+
+{% endblock %}
