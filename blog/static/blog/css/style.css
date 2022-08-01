@@ -110,7 +110,7 @@ html {
     display: flex;
     align-items: center;
     height: 60vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.207), rgba(0, 0, 0, 0.202)), url('../images/IMG_2061.JPG');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.207), rgba(0, 0, 0, 0.202)), url('../images/IMG_2388.jpeg');
     background-position: center;
     background-size: cover;
   }
@@ -293,4 +293,39 @@ html {
     width: 150px;
     margin-right: 20px;
   }
+
+  .pagination {
+    margin-top: 30px;
+  }
+
+  .pagination__step-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .pagination__item {
+    color: grey;
+    background-color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid rgb(165, 165, 165);
+    padding: 8px 15px;
+    margin: 4px 4px;
+    transition: all 0.2s linear;
+  }
+
+  .pagination__item:hover {
+    color: white;
+    background-color: #ec0e0e;
+  }
+
+  .pagination__counter {
+    color: grey;
+    font-size: 14px;
+    border: 1px solid rgb(165, 165, 165);
+    padding: 8px 15px;
+    margin: 4px 4px;
+  }
+
   

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from .models import Post, Category
 
 # Create your views here.
@@ -32,6 +33,14 @@ def categories(request, category_name):
     }
     return render(request, 'blog/categories.html', context)
 
+
 def all_posts(request):
     posts = Post.objects.all().order_by('-published_date')
-    return render(request, 'blog/all_posts.html', {'posts': posts})
+    paginator = Paginator(posts, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'posts': posts,
+        'page_obj': page_obj
+    }
+    return render(request, 'blog/all_posts.html', context)

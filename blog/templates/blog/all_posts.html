@@ -7,7 +7,7 @@
     </div>
     
     <div class="posts">
-        {% for post in posts %}
+        {% for post in page_obj %}
             <article class="post">
                 <img class="post__photo" src="{{ post.image.url }}" alt="">
                 <div class="post__description">
@@ -20,6 +20,25 @@
                 </div>
             </article>
         {% endfor %}
+
+       
+        </div>
+        <div class="pagination">
+            <span class="pagination__step-links">
+                {% if page_obj.has_previous %}
+                    <a class="pagination__item" href="?page=1">&laquo; pierwsza</a>
+                    <a class="pagination__item" href="?page={{ page_obj.previous_page_number }}">poprzednia</a>
+                {% endif %}
+        
+                <span class="current pagination__counter">
+                   Strona {{ page_obj.number }} z {{ page_obj.paginator.num_pages }}
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a class="pagination__item" href="?page={{ page_obj.next_page_number }}">następna</a>
+                    <a class="pagination__item" href="?page={{ page_obj.paginator.num_pages }}">ostatnia &raquo;</a>
+                {% endif %}
+            </span>
     </div>
    
 </section>
