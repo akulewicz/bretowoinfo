@@ -6,7 +6,7 @@ from .models import Post, Category
 
 def main(request):
     posts = Post.objects.all().order_by('-published_date')
-    city_category = Category.objects.get(name='Z miasta')
+    city_category = Category.objects.get(name='z miasta')
     context = {
         'posts': posts,
         'city_category': city_category
@@ -25,11 +25,14 @@ def post_details(request, slug):
 
 
 def categories(request, category_name):
-    category = Category.objects.get(name__iexact=category_name)
+    category = Category.objects.get(name__iexact=category_name.replace('-', ' '))
     category_posts = category.posts.all()
+    paginator = Paginator(category_posts, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
-        'category_name': category_name,
-        'category_posts': category_posts
+        'category_name': category_name.replace('-', ' '),
+        'page_obj': page_obj
     }
     return render(request, 'blog/categories.html', context)
 
@@ -40,7 +43,6 @@ def all_posts(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
-        'posts': posts,
-        'page_obj': page_obj
+        'posts': page_obj
     }
     return render(request, 'blog/all_posts.html', context)

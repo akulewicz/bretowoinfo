@@ -7,12 +7,12 @@
     </div>
     
     <div class="posts">
-        {% for post in page_obj %}
+        {% for post in posts %}
             <article class="post">
                 <img class="post__photo" src="{{ post.image.url }}" alt="">
                 <div class="post__description">
                     <div class="post-single__info">
-                        <span><a class="post-single__category" href="{% url 'category' post.category %}">{{ post.category }}</a></span>
+                        <span><a class="post-single__category" href="{% url 'category' post.category|slugify %}">{{ post.category }}</a></span>
                         <span class="post-single__date">{{ post.published_date }}</span>
                     </div>
                     <h3 class="post__title"><a class="post__link" href="{% url 'post_details' slug=post.slug %}">{{ post.title }}</a></h3>
