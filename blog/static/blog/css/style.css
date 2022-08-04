@@ -21,12 +21,16 @@ html {
     padding: 5px;
   }
 
-  p {
-    font-family: 'Lato', sans-serif;
-  }
+
 
   h1, h2, h3, h4, h5 {
     color: #000;
+  }
+
+  p, ul {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.7;
+    font-size: 18px;
   }
 
   .more-link {
@@ -109,8 +113,8 @@ html {
   .site-header__cover {
     display: flex;
     align-items: center;
-    height: 60vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.207), rgba(0, 0, 0, 0.202)), url('../images/IMG_2388.jpeg');
+    height: 70vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.547), rgba(0, 0, 0, 0.568)), url('../images/IMG_2061.JPG');
     background-position: center;
     background-size: cover;
   }
@@ -250,12 +254,10 @@ html {
 
   .post__excerpt {
     line-height: 1.5;
+    font-size: 16px;
   }
 
-  .post__content {
-    line-height: 1.7;
-    font-size: 18px;
-  }
+ 
 
   .latest {
     display: grid;

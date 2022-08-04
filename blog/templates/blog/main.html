@@ -11,9 +11,9 @@
             <article class="post post--home">
                 <img class="post__photo" src="{{ post.image.url }}" alt="">
                 <div class="post__description post__description--first">
-                    <span><a class="post__category" href="{% url 'category' post.category|slugify %}">{{ post.category }}</a></span>
+                    <span><a class="post__category" href="{% url 'category' post.category.name %}">{{ post.category }}</a></span>
                     <h3 class="post__title"><a class="post__link" href="{% url 'post_details' slug=post.slug %}">{{ post.title }}</a></h3>
-                    <p class="post__excerpt">{{ post.content|truncatewords:40 }}</p>
+                    <p class="post__excerpt">{{ post.excerpt|truncatewords:30 }}</p>
                 </div>
             </article>
         {% endfor %}
@@ -34,7 +34,7 @@
                 <div class="post__description">
                     <span class="post__category">{{ post.category }}</span>
                 <h3 class="post__title">{{ post.title }}</h3>
-                <p class="post__excerpt">{{ post.content|truncatewords:40 }}</p>
+                <p class="post__excerpt">{{ post.excerpt|truncatewords:40 }}</p>
                 </div>
             </article>
         {% endfor %}

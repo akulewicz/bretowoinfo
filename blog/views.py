@@ -43,6 +43,6 @@ def all_posts(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
-        'posts': page_obj
+        'page_obj': page_obj
     }
     return render(request, 'blog/all_posts.html', context)

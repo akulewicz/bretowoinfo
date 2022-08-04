@@ -7,7 +7,7 @@
     </div>
     
     <div class="posts">
-        {% for post in posts %}
+        {% for post in page_obj %}
             <article class="post">
                 <img class="post__photo" src="{{ post.image.url }}" alt="">
                 <div class="post__description">
@@ -16,7 +16,7 @@
                         <span class="post-single__date">{{ post.published_date }}</span>
                     </div>
                     <h3 class="post__title"><a class="post__link" href="{% url 'post_details' slug=post.slug %}">{{ post.title }}</a></h3>
-                    <p class="post__excerpt">{{ post.content|truncatewords:40 }}</p>
+                    <p class="post__excerpt">{{ post.excerpt|truncatewords:40 }}</p>
                 </div>
             </article>
         {% endfor %}

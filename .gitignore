@@ -6,5 +6,6 @@ __pycache__
 *.pyc
 media/
 images/
+static/
 **/.DS_Store
 
