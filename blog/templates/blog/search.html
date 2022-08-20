@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<section class="news">
+    <div class="block-title">
+        <h2 class="block-title__heading">Wyniki wyszukiwania</h2>
+    </div>
+    {% if page_obj %}
+    <div class="posts">
+        {% for post in page_obj %}
+            <article class="post">
+                <img class="post__photo" src="{{ post.image.url }}" alt="">
+                <div class="post__description">
+                    <div class="post-single__info">
+                        <span><a class="post-single__category" href="{% url 'category' post.category|slugify %}">{{ post.category }}</a></span>
+                        <span class="post-single__date">{{ post.published_date }}</span>
+                    </div>
+                    <h3 class="post__title"><a class="post__link" href="{% url 'post_details' slug=post.slug %}">{{ post.title }}</a></h3>
+                    <p class="post__excerpt">{{ post.excerpt|truncatewords:40 }}</p>
+                </div>
+            </article>
+        {% endfor %}
+
+       
+        </div>
+        <div class="pagination">
+            <span class="pagination__step-links">
+                {% if page_obj.has_previous %}
+                    <a class="pagination__item" href="?page=1">&laquo; pierwsza</a>
+                    <a class="pagination__item" href="?page={{ page_obj.previous_page_number }}">poprzednia</a>
+                {% endif %}
+        
+                <span class="current pagination__counter">
+                   Strona {{ page_obj.number }} z {{ page_obj.paginator.num_pages }}
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a class="pagination__item" href="?page={{ page_obj.next_page_number }}">następna</a>
+                    <a class="pagination__item" href="?page={{ page_obj.paginator.num_pages }}">ostatnia &raquo;</a>
+                {% endif %}
+            </span>
+    </div>
+    
+
+  
+        {% else %} 
+            <p>Brak postów spełniających kryteria wyszukiwania</p>
+        {% endif %}
+   
+</section>
+{% endblock %}

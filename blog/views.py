@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
+from django.db.models import Q
 from .models import Post, Category
 
 # Create your views here.
@@ -46,3 +47,17 @@ def all_posts(request):
         'page_obj': page_obj
     }
     return render(request, 'blog/all_posts.html', context)
+
+
+def search_posts(request):
+    q = request.GET.get("q")
+    if q:
+        posts = Post.objects.filter(Q(title__icontains=q) | Q(content__icontains=q))
+    paginator = Paginator(posts, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'page_obj': page_obj
+    }
+    return render(request, 'blog/search.html', context)
+        

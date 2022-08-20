@@ -2,34 +2,48 @@
 
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bretowo.info</title>
     <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+
 <body>
+
+    <div class="search-box search-box--js">
+        <button class="search-box__close search-box__close--js"><i class="fas fa-times"></i></button>
+        <form class="search-form" method="GET" action="{% url 'search' %}">
+            <input class="search-form__input search-form__input--js" type="text" name="q" id="search" placeholder="Wpisz szukaną frazę" />
+            <button class="search-form__button"><i class="fas fa-search search-form__icon"></i></button>
+        </form>
+    </div>
+
     <header class="site-header">
         <nav class="top-navigation">
             <ul class="top-navigation__list">
-                <li class="top-navigation__item"><a class="top-navigation__link" href="{% url 'posts_list' %}">Strona główna</a></li>
-                <li class="top-navigation__item"><a class="top-navigation__link" href="{% url 'posts_list' %}">O Brętowie</a></li>
-                <li class="top-navigation__item"><a class="top-navigation__link" href="{% url 'posts_list' %}">Kontakt</a></li>
+                <li class="top-navigation__item"><a class="top-navigation__link" href="{% url 'posts_list' %}">Strona
+                        główna</a></li>
+                <li class="top-navigation__item"><a class="top-navigation__link" href="{% url 'posts_list' %}">O
+                        Brętowie</a></li>
+                <li class="top-navigation__item"><a class="top-navigation__link"
+                        href="{% url 'posts_list' %}">Kontakt</a></li>
             </ul>
+            <button class="search-button search-button--js"><i class="fas fa-search"></i></button>
         </nav>
         <div class="site-header__cover">
             <h1 class="site-header__title container">Bretowo.info</h1>
         </div>
     </header>
     <main class="main container">
-    
+
         {% block content%}{% endblock %}
-            
-       
+
+
     </main>
-
-
-   
+    <script src="{% static 'blog/js/search.js' %}"></script>
 </body>
 </html>
