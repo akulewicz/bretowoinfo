@@ -5,7 +5,9 @@
     <div class="block-title">
         <h2 class="block-title__heading">Wyniki wyszukiwania</h2>
     </div>
+    
     {% if page_obj %}
+    <p>Liczba wyników: {{ page_obj|length }}</p>
     <div class="posts">
         {% for post in page_obj %}
             <article class="post">

@@ -43,21 +43,19 @@ def all_posts(request):
     paginator = Paginator(posts, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    context = {
-        'page_obj': page_obj
-    }
+    context = {'page_obj': page_obj}
     return render(request, 'blog/all_posts.html', context)
 
 
 def search_posts(request):
     q = request.GET.get("q")
-    if q:
+    if len(q)>0:
         posts = Post.objects.filter(Q(title__icontains=q) | Q(content__icontains=q))
-    paginator = Paginator(posts, 6)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    context = {
-        'page_obj': page_obj
-    }
-    return render(request, 'blog/search.html', context)
+        paginator = Paginator(posts, 6)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+    else:
+        page_obj = None
+    
+    return render(request, 'blog/search.html', {'page_obj': page_obj})
         
